@@ -35,9 +35,9 @@ const Header = () => {
         <div className="flex justify-between items-center py-4">
           <div className="flex items-center">
             <Link href="/">
-              <a className="flex items-center">
+              <div className="flex items-center cursor-pointer">
                 <span className="text-primary font-bold text-2xl">NEXTGEN</span>
-              </a>
+              </div>
             </Link>
           </div>
 
@@ -45,14 +45,14 @@ const Header = () => {
           <nav className="hidden md:flex space-x-8">
             {navLinks.map((link) => (
               <Link key={link.path} href={link.path}>
-                <a
-                  className={`font-medium hover:text-primary transition-colors ${
+                <div
+                  className={`font-medium hover:text-primary transition-colors cursor-pointer ${
                     isActive(link.path) ? "text-primary" : "text-neutral-700"
                   }`}
                   onClick={closeMenu}
                 >
                   {link.name}
-                </a>
+                </div>
               </Link>
             ))}
           </nav>
@@ -79,14 +79,14 @@ const Header = () => {
           <div className="flex flex-col space-y-4">
             {navLinks.map((link) => (
               <Link key={link.path} href={link.path}>
-                <a
-                  className={`font-medium py-2 px-2 hover:text-primary transition-colors ${
+                <div
+                  className={`font-medium py-2 px-2 hover:text-primary transition-colors cursor-pointer ${
                     isActive(link.path) ? "text-primary" : "text-neutral-700"
                   }`}
                   onClick={closeMenu}
                 >
                   {link.name}
-                </a>
+                </div>
               </Link>
             ))}
           </div>

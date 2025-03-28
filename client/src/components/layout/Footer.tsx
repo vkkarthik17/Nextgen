@@ -56,44 +56,44 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Home
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/#courses">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Courses
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/consulting">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Consulting Services
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/placements">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Placements
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/blog">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Blog
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/contact">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Contact
-                  </a>
+                  </div>
                 </Link>
               </li>
             </ul>
@@ -104,44 +104,44 @@ const Footer = () => {
             <ul className="space-y-2">
               <li>
                 <Link href="/courses/3d-design">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     3D Design & Modeling
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/courses/piping-design">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Piping Design & Engineering
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/courses/process-simulation">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     Process Simulation
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/courses/sap-training">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     SAP Training
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/courses/dotnet-development">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     .NET Development
-                  </a>
+                  </div>
                 </Link>
               </li>
               <li>
                 <Link href="/#courses">
-                  <a className="text-neutral-300 hover:text-white transition duration-300">
+                  <div className="text-neutral-300 hover:text-white transition duration-300 cursor-pointer">
                     All Courses
-                  </a>
+                  </div>
                 </Link>
               </li>
             </ul>
