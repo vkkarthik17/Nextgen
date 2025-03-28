@@ -1,0 +1,119 @@
+Nextgen Website Template Structure
+
+Home Page
+
+Hero Section:
+
+Bold heading: "Transform Your Career with Nextgen"
+
+Subtitle: "World-Class Training in Advanced Engineering and Technology"
+
+CTA Buttons: [View Courses] [Request Consultation]
+
+About Nextgen:
+
+Brief introduction: "We empower professionals through specialized training in engineering design, programming, and professional development."
+
+Our Specializations (Interactive cards/icons):
+
+3D Design & Modeling
+
+Piping Design & Engineering
+
+Process Simulation & Design
+
+Process Instrumentation & Control Systems
+
+Advanced CAD & Drafting Techniques
+
+Electrical & Automation Engineering
+
+SAP Training
+
+.NET Training
+
+AI Training
+
+Communication Skills & Personality Development
+
+Why Choose Nextgen?
+
+Placement Guarantee & Assistance
+
+Industry-Experienced Instructors
+
+Hands-On Training
+
+Comprehensive Curriculum
+
+Ongoing Support
+
+Industries We Serve (visual logos/icons):
+
+Oil & Gas
+
+Chemical Industry
+
+Pharma Sector
+
+Plant Engineering
+
+Automobile Industry
+
+Power Industry
+
+Testimonials Section
+
+Quotes from successful alumni
+
+Call to Action Section:
+
+"Ready to Take the Next Step in Your Career?"
+
+CTA Button: [Enroll Now] or [Get in Touch]
+
+Contact Information Footer:
+
+Phone number prominently displayed
+
+Email: info@nextgenlearnings.com
+
+Quick links to social media channels
+
+Courses Page
+
+Detailed description and curriculum breakdown for each training program
+
+Schedule, duration, and enrollment details
+
+Instructor profiles
+
+Consulting Services Page
+
+Brief intro: "Leverage expert guidance for your industry challenges"
+
+Areas of consulting expertise
+
+Case studies showcasing previous success stories
+
+Placement and Careers Page
+
+Explanation of the placement assistance program
+
+Highlight partner companies
+
+Success stories and testimonials from alumni
+
+Blog/Resources
+
+Articles and insights related to training, technology trends, career advice
+
+Industry news and updates
+
+Contact Us Page
+
+Simple form: Name, Email, Phone, Message
+
+Address and interactive map
+
+Direct contact details
