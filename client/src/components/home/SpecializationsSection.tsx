@@ -3,8 +3,8 @@ import { Link } from "wouter";
 import { ArrowRight } from "lucide-react";
 import { specializations } from "@/data/specializations";
 import { motion } from "framer-motion";
-import { ScrollAnimationWrapper, StaggeredAnimation } from "@/hooks/use-scroll-animation";
-import { fadeIn, slideIn, scaleIn } from "@/lib/animation";
+import { ScrollAnimationWrapper } from "@/hooks/use-scroll-animation";
+import { fadeIn, slideIn } from "@/lib/animation";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
 
@@ -35,83 +35,81 @@ const SpecializationsSection = () => {
         </ScrollAnimationWrapper>
 
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-          <StaggeredAnimation>
-            {specializations.map((specialization) => (
-              <motion.div
-                key={specialization.id}
-                onMouseEnter={() => setHoveredCard(specialization.id)}
-                onMouseLeave={() => setHoveredCard(null)}
-                className="h-full"
-                whileHover={{
-                  y: isMobile ? 0 : -10,
-                  transition: { duration: 0.3 }
-                }}
+          {specializations.map((specialization) => (
+            <motion.div
+              key={specialization.id}
+              onMouseEnter={() => setHoveredCard(specialization.id)}
+              onMouseLeave={() => setHoveredCard(null)}
+              className="h-full"
+              whileHover={{
+                y: isMobile ? 0 : -10,
+                transition: { duration: 0.3 }
+              }}
+            >
+              <Card 
+                className={`overflow-hidden h-full transition-all duration-300 border border-neutral-200/70 ${
+                  hoveredCard === specialization.id 
+                    ? 'shadow-xl border-primary/20' 
+                    : 'shadow-md'
+                }`}
               >
-                <Card 
-                  className={`overflow-hidden h-full transition-all duration-300 border border-neutral-200/70 ${
-                    hoveredCard === specialization.id 
-                      ? 'shadow-xl border-primary/20' 
-                      : 'shadow-md'
-                  }`}
-                >
-                  {specialization.image && (
-                    <div className="w-full h-48 overflow-hidden">
-                      <img 
-                        src={specialization.image} 
-                        alt={specialization.title} 
-                        className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
-                      />
-                    </div>
-                  )}
-                  <CardContent className="p-5 md:p-8 h-full flex flex-col">
-                    <div className="flex flex-row md:flex-row items-center gap-4 mb-4">
-                      <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center transition-all duration-300 ${
-                        hoveredCard === specialization.id 
-                          ? 'bg-primary scale-110' 
-                          : 'bg-primary/90'
-                      }`}>
-                        {specialization.Icon && (
-                          <motion.div 
-                            className="text-white"
-                            animate={hoveredCard === specialization.id ? { rotate: 360 } : { rotate: 0 }}
-                            transition={{ duration: 0.5, ease: "easeInOut" }}
-                          >
-                            <specialization.Icon className="h-6 w-6 md:h-8 md:w-8" />
-                          </motion.div>
-                        )}
-                      </div>
-                      <h3 className="text-lg md:text-xl font-bold text-neutral-800">
-                        {specialization.title}
-                      </h3>
-                    </div>
-                    
-                    <p className="text-sm md:text-base text-neutral-600 mb-4 md:mb-6 flex-grow">
-                      {specialization.description}
-                    </p>
-                    
-                    <div className="mt-auto">
-                      <Link 
-                        href={`/courses/${specialization.id}`} 
-                        className={`group inline-flex items-center font-medium transition-colors ${
-                          hoveredCard === specialization.id 
-                            ? 'text-cyan-600' 
-                            : 'text-primary'
-                        }`}
-                      >
-                        <span className="mr-2">Learn more</span>
-                        <motion.span
-                          animate={hoveredCard === specialization.id ? { x: 5 } : { x: 0 }}
-                          transition={{ duration: 0.3 }}
+                {specialization.image && (
+                  <div className="w-full h-48 overflow-hidden">
+                    <img 
+                      src={specialization.image} 
+                      alt={specialization.title} 
+                      className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+                    />
+                  </div>
+                )}
+                <CardContent className="p-5 md:p-8 h-full flex flex-col">
+                  <div className="flex flex-row md:flex-row items-center gap-4 mb-4">
+                    <div className={`w-12 h-12 md:w-16 md:h-16 rounded-xl md:rounded-2xl flex items-center justify-center transition-all duration-300 ${
+                      hoveredCard === specialization.id 
+                        ? 'bg-primary scale-110' 
+                        : 'bg-primary/90'
+                    }`}>
+                      {specialization.Icon && (
+                        <motion.div 
+                          className="text-white"
+                          animate={hoveredCard === specialization.id ? { rotate: 360 } : { rotate: 0 }}
+                          transition={{ duration: 0.5, ease: "easeInOut" }}
                         >
-                          <ArrowRight className="h-4 w-4" />
-                        </motion.span>
-                      </Link>
+                          <specialization.Icon className="h-6 w-6 md:h-8 md:w-8" />
+                        </motion.div>
+                      )}
                     </div>
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </StaggeredAnimation>
+                    <h3 className="text-lg md:text-xl font-bold text-neutral-800">
+                      {specialization.title}
+                    </h3>
+                  </div>
+                  
+                  <p className="text-sm md:text-base text-neutral-600 mb-4 md:mb-6 flex-grow">
+                    {specialization.description}
+                  </p>
+                  
+                  <div className="mt-auto">
+                    <Link 
+                      href={`/courses/${specialization.id}`} 
+                      className={`group inline-flex items-center font-medium transition-colors ${
+                        hoveredCard === specialization.id 
+                          ? 'text-cyan-600' 
+                          : 'text-primary'
+                      }`}
+                    >
+                      <span className="mr-2">Learn more</span>
+                      <motion.span
+                        animate={hoveredCard === specialization.id ? { x: 5 } : { x: 0 }}
+                        transition={{ duration: 0.3 }}
+                      >
+                        <ArrowRight className="h-4 w-4" />
+                      </motion.span>
+                    </Link>
+                  </div>
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
         
         <ScrollAnimationWrapper

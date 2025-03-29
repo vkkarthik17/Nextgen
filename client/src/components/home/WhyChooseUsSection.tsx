@@ -8,7 +8,7 @@ import {
   CertificationIcon,
 } from "@/components/ui/icons";
 import { motion } from "framer-motion";
-import { ScrollAnimationWrapper, StaggeredAnimation } from "@/hooks/use-scroll-animation";
+import { ScrollAnimationWrapper } from "@/hooks/use-scroll-animation";
 import { fadeIn, scaleIn } from "@/lib/animation";
 import { useState } from "react";
 import { useIsMobile } from "@/hooks/use-mobile";
@@ -107,54 +107,52 @@ const WhyChooseUsSection = () => {
           </p>
         </ScrollAnimationWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 md:gap-8">
-          <StaggeredAnimation staggerDuration={0.1}>
-            {reasons.map((reason) => (
-              <motion.div
-                key={reason.id}
-                onMouseEnter={() => setHoveredReason(reason.id)}
-                onMouseLeave={() => setHoveredReason(null)}
-                whileHover={{ y: isMobile ? 0 : -10 }}
-                transition={{ type: "spring", stiffness: 300, damping: 20 }}
-              >
-                <Card className="bg-white border border-neutral-200/50 shadow-lg overflow-hidden h-full">
-                  {reason.image && (
-                    <div className="w-full h-36 md:h-40 overflow-hidden">
-                      <img 
-                        src={reason.image} 
-                        alt={reason.title}
-                        className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
-                      />
-                    </div>
-                  )}
-                  <CardContent className="p-5 md:p-6">
-                    <div className="flex flex-col items-center text-center mb-4">
-                      <motion.div 
-                        className={`w-16 h-16 md:w-20 md:h-20 ${reason.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 mb-4`}
-                        animate={hoveredReason === reason.id ? { rotate: [0, 10, -10, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
-                        transition={{ duration: 0.5 }}
-                      >
-                        <reason.Icon className={`h-8 w-8 md:h-10 md:w-10 ${reason.iconColor}`} />
-                      </motion.div>
-                      
-                      <div>
-                        <h3 className="text-lg md:text-xl font-bold mb-3 text-neutral-800">{reason.title}</h3>
-                        <p className="text-sm md:text-base text-neutral-600">{reason.description}</p>
-                      </div>
-                    </div>
-                    
-                    {/* Animated underline on hover */}
-                    <motion.div 
-                      className="h-0.5 bg-gradient-to-r from-primary to-primary/40 mt-4 md:mt-6"
-                      initial={{ width: 0 }}
-                      animate={{ width: hoveredReason === reason.id ? "100%" : "30%" }}
-                      transition={{ duration: 0.3 }}
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          {reasons.map((reason) => (
+            <motion.div
+              key={reason.id}
+              onMouseEnter={() => setHoveredReason(reason.id)}
+              onMouseLeave={() => setHoveredReason(null)}
+              whileHover={{ y: isMobile ? 0 : -10 }}
+              transition={{ type: "spring", stiffness: 300, damping: 20 }}
+            >
+              <Card className="bg-white border border-neutral-200/50 shadow-lg overflow-hidden h-full">
+                {reason.image && (
+                  <div className="w-full h-36 md:h-40 overflow-hidden">
+                    <img 
+                      src={reason.image} 
+                      alt={reason.title}
+                      className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
                     />
-                  </CardContent>
-                </Card>
-              </motion.div>
-            ))}
-          </StaggeredAnimation>
+                  </div>
+                )}
+                <CardContent className="p-5 md:p-6">
+                  <div className="flex flex-col items-center text-center mb-4">
+                    <motion.div 
+                      className={`w-16 h-16 md:w-20 md:h-20 ${reason.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 mb-4`}
+                      animate={hoveredReason === reason.id ? { rotate: [0, 10, -10, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
+                      transition={{ duration: 0.5 }}
+                    >
+                      <reason.Icon className={`h-8 w-8 md:h-10 md:w-10 ${reason.iconColor}`} />
+                    </motion.div>
+                    
+                    <div>
+                      <h3 className="text-lg md:text-xl font-bold mb-3 text-neutral-800">{reason.title}</h3>
+                      <p className="text-sm md:text-base text-neutral-600">{reason.description}</p>
+                    </div>
+                  </div>
+                  
+                  {/* Animated underline on hover */}
+                  <motion.div 
+                    className="h-0.5 bg-gradient-to-r from-primary to-primary/40 mt-4 md:mt-6"
+                    initial={{ width: 0 }}
+                    animate={{ width: hoveredReason === reason.id ? "100%" : "30%" }}
+                    transition={{ duration: 0.3 }}
+                  />
+                </CardContent>
+              </Card>
+            </motion.div>
+          ))}
         </div>
         
         <ScrollAnimationWrapper
