@@ -434,15 +434,18 @@ const ConsultingPage = () => {
             </p>
           </ScrollAnimationWrapper>
 
-          <div className={`grid grid-cols-1 ${isMobile ? '' : 'md:grid-cols-4'} gap-8 relative`}>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 relative">
             {/* Process connector line (desktop only) */}
-            {!isMobile && (
-              <div className="absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 transform -translate-y-1/2"></div>
-            )}
+            <div className="hidden lg:block absolute top-1/2 left-0 w-full h-1 bg-gray-200 -z-10 transform -translate-y-1/2"></div>
             
-            <StaggeredAnimation staggerDuration={0.15}>
-              {processSteps.map((step, index) => (
-                <div key={index} className="text-center relative">
+            {processSteps.map((step, index) => (
+              <ScrollAnimationWrapper 
+                key={index} 
+                variants={fadeIn(0.1 + (index * 0.05), "up")}
+                threshold={0.1}
+                className="h-full"
+              >
+                <div className="text-center relative h-full">
                   <motion.div 
                     className={`w-20 h-20 rounded-full bg-gradient-to-r ${step.color} flex items-center justify-center mx-auto mb-6 shadow-lg`}
                     whileHover={{ scale: 1.1 }}
@@ -456,8 +459,8 @@ const ConsultingPage = () => {
                   <h3 className="text-xl font-bold mb-3">{step.title}</h3>
                   <p className="text-gray-600">{step.description}</p>
                 </div>
-              ))}
-            </StaggeredAnimation>
+              </ScrollAnimationWrapper>
+            ))}
           </div>
         </div>
       </section>

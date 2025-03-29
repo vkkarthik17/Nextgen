@@ -179,42 +179,42 @@ const HeroSection = () => {
                 <img 
                   src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
                   alt="NextGen Engineering Training" 
-                  className="w-full h-full object-cover aspect-video"
+                  className="w-full h-full object-cover object-center aspect-[4/3] md:aspect-video"
                 />
                 
-                {/* Modern floating stats cards */}
-                <div className="absolute bottom-6 right-6 bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 shadow-lg z-20">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary/30 p-2 rounded-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                {/* Mobile-responsive floating stats cards */}
+                <div className="absolute bottom-2 sm:bottom-6 right-2 sm:right-6 bg-white/10 backdrop-blur-lg p-2 sm:p-4 rounded-xl border border-white/20 shadow-lg z-20 max-w-[140px] sm:max-w-none">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="bg-primary/30 p-1.5 sm:p-2 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M12 2v4M12 18v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M2 12h4M18 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83"/>
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">10+ Years Excellence</p>
-                      <p className="text-xs text-white/70">Top-rated training institute</p>
+                      <p className="text-xs sm:text-sm font-medium text-white">10+ Years Excellence</p>
+                      <p className="text-[10px] sm:text-xs text-white/70">Top-rated institute</p>
                     </div>
                   </div>
                 </div>
                 
-                <div className="absolute top-6 left-6 bg-white/10 backdrop-blur-lg p-4 rounded-xl border border-white/20 shadow-lg z-20">
-                  <div className="flex items-center gap-3">
-                    <div className="bg-primary/30 p-2 rounded-lg">
-                      <svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                <div className="absolute top-2 sm:top-6 left-2 sm:left-6 bg-white/10 backdrop-blur-lg p-2 sm:p-4 rounded-xl border border-white/20 shadow-lg z-20 max-w-[140px] sm:max-w-none">
+                  <div className="flex items-center gap-2 sm:gap-3">
+                    <div className="bg-primary/30 p-1.5 sm:p-2 rounded-lg">
+                      <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                         <path d="M22 11.08V12a10 10 0 1 1-5.93-9.14"/>
                         <polyline points="22 4 12 14.01 9 11.01"/>
                       </svg>
                     </div>
                     <div>
-                      <p className="text-sm font-medium text-white">98% Placement Rate</p>
-                      <p className="text-xs text-white/70">Industry-recognized training</p>
+                      <p className="text-xs sm:text-sm font-medium text-white">98% Placement Rate</p>
+                      <p className="text-[10px] sm:text-xs text-white/70">Industry-recognized</p>
                     </div>
                   </div>
                 </div>
                 
                 {/* Tech-looking badge */}
-                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-xl p-5 rounded-full border border-white/10 shadow-xl z-20">
-                  <div className="w-16 h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center animate-pulse">
+                <div className="absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2 bg-black/50 backdrop-blur-xl p-3 sm:p-5 rounded-full border border-white/10 shadow-xl z-20">
+                  <div className="w-12 h-12 sm:w-16 sm:h-16 rounded-full bg-gradient-to-br from-primary to-blue-600 flex items-center justify-center animate-pulse">
                     <span className="text-white font-bold text-xs">NEXTGEN</span>
                   </div>
                 </div>

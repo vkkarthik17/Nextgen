@@ -226,10 +226,14 @@ const PlacementsPage = () => {
           </ScrollAnimationWrapper>
 
           <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-            <StaggeredAnimation staggerDuration={0.1}>
-              {placementProcess.map((step, index) => (
+            {placementProcess.map((step, index) => (
+              <ScrollAnimationWrapper 
+                key={index}
+                variants={fadeIn(0.1 + (index * 0.05), "up")}
+                threshold={0.1}
+                className="h-full"
+              >
                 <motion.div 
-                  key={index}
                   whileHover={{ y: -8 }}
                   transition={{ type: "spring", stiffness: 300, damping: 25 }}
                   className="h-full"
@@ -249,8 +253,8 @@ const PlacementsPage = () => {
                     <div className="h-1.5 bg-primary/60 w-full opacity-80"></div>
                   </Card>
                 </motion.div>
-              ))}
-            </StaggeredAnimation>
+              </ScrollAnimationWrapper>
+            ))}
           </div>
         </div>
       </section>
