@@ -168,69 +168,123 @@ const ConsultingPage = () => {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="hero-section relative py-20 md:py-32 bg-gradient-to-r from-gray-900 via-primary/90 to-gray-900 text-white overflow-hidden">
-        {/* Background pattern */}
-        <div className="absolute inset-0 overflow-hidden">
-          <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxNSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')] opacity-20"></div>
+      <section className="hero-section relative min-h-[80vh] flex items-center overflow-hidden">
+        {/* Background image with parallax effect */}
+        <div className="absolute inset-0 bg-cover bg-center bg-fixed z-0"
+          style={{
+            backgroundImage: `url(https://images.unsplash.com/photo-1664575196412-ed801e8333a1?ixlib=rb-1.2.1&auto=format&fit=crop&w=1500&q=80)`,
+            filter: 'brightness(0.3)',
+          }}>
         </div>
         
-        <div className="container relative mx-auto px-4">
-          <ScrollAnimationWrapper variants={fadeIn(0.2, "up")} className="max-w-3xl mx-auto text-center">
-            <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6">
-              Expert Consulting Services
-            </h1>
-            <div className="w-20 h-1 bg-primary/50 mx-auto mb-6"></div>
-            <p className="text-lg md:text-xl text-white/80 mb-10 max-w-2xl mx-auto">
-              Leverage our industry expertise to solve your technical challenges and optimize operations for maximum efficiency
-            </p>
-            <motion.div
-              whileHover={{ scale: 1.05 }}
-              whileTap={{ scale: 0.95 }}
-              transition={{ type: "spring", stiffness: 400, damping: 10 }}
-            >
-              <Button size="lg" className="bg-white text-primary hover:bg-gray-50 font-medium px-8 py-3" asChild>
-                <Link href="/contact">
-                  Request a Consultation
-                  <ArrowRight className="ml-2 h-4 w-4" />
-                </Link>
-              </Button>
-            </motion.div>
-          </ScrollAnimationWrapper>
+        {/* Overlay gradient */}
+        <div className="absolute inset-0 bg-gradient-to-r from-blue-900/90 via-primary/80 to-blue-900/90 opacity-80 mix-blend-multiply z-10"></div>
+        
+        {/* Floating geometric shapes for visual interest */}
+        <div className="absolute inset-0 z-10 overflow-hidden">
+          {/* Large shape */}
+          <div className="parallax-element absolute -top-20 -right-20 opacity-30" data-speed="0.03">
+            <svg width="500" height="500" viewBox="0 0 100 100" className="text-amber-400">
+              <path d="M50 0L93.3013 25V75L50 100L6.69873 75V25L50 0Z" fill="currentColor" />
+            </svg>
+          </div>
+          
+          {/* Medium shape */}
+          <div className="parallax-element absolute bottom-10 left-10 opacity-20" data-speed="0.05">
+            <svg width="300" height="300" viewBox="0 0 100 100" className="text-cyan-400">
+              <circle cx="50" cy="50" r="50" fill="currentColor" />
+            </svg>
+          </div>
+          
+          {/* Small decorative elements */}
+          <div className="absolute top-1/3 left-1/4 w-40 h-40 rounded-full bg-primary/20 blur-3xl"></div>
+          <div className="absolute bottom-1/3 right-1/4 w-60 h-60 rounded-full bg-amber-400/20 blur-3xl"></div>
         </div>
         
-        {/* Floating stats cards */}
-        <div className="absolute -bottom-16 left-1/2 transform -translate-x-1/2 w-full max-w-5xl px-4">
-          <ScrollAnimationWrapper variants={fadeIn(0.4, "up")}>
-            <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
-              <div className="bg-white rounded-xl shadow-xl p-6 flex items-center">
-                <div className="bg-primary/10 p-3 rounded-lg mr-4">
-                  <Users className="h-6 w-6 text-primary" />
+        <div className="container relative mx-auto px-4 z-20 py-16 md:py-0">
+          <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <ScrollAnimationWrapper variants={fadeIn(0.2, "right")}>
+              <div className="lg:pr-10">
+                <div className="inline-block bg-white/10 backdrop-blur-sm px-4 py-2 rounded-full text-white/90 text-sm mb-4">
+                  Industry Leading Expertise
                 </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-800">250+</p>
-                  <p className="text-gray-600">Clients Served</p>
+                <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold mb-6 text-white">
+                  Expert Consulting <span className="text-cyan-400">Services</span>
+                </h1>
+                <div className="w-20 h-1 bg-amber-400 mb-6"></div>
+                <p className="text-lg md:text-xl text-white/90 mb-10 max-w-2xl">
+                  Leverage our industry expertise to solve your technical challenges and optimize operations for maximum efficiency and performance
+                </p>
+                <motion.div
+                  whileHover={{ scale: 1.05 }}
+                  whileTap={{ scale: 0.95 }}
+                  transition={{ type: "spring", stiffness: 400, damping: 10 }}
+                >
+                  <Button size="lg" className="bg-amber-400 text-gray-900 hover:bg-amber-300 font-medium px-8 py-6 text-lg shadow-lg" asChild>
+                    <Link href="/contact">
+                      Request a Consultation
+                      <ArrowRight className="ml-2 h-5 w-5" />
+                    </Link>
+                  </Button>
+                </motion.div>
+              </div>
+            </ScrollAnimationWrapper>
+            
+            <ScrollAnimationWrapper variants={fadeIn(0.3, "left")} className="hidden lg:block">
+              <div className="relative">
+                {/* Decorative backdrop */}
+                <div className="absolute -inset-4 bg-gradient-to-tr from-primary/20 to-transparent rounded-2xl blur-xl"></div>
+                
+                {/* Card grid - main feature */}
+                <div className="parallax-element relative" data-speed="0.07">
+                  <div className="relative bg-white/10 backdrop-blur-md p-8 rounded-2xl border border-white/20 shadow-2xl">
+                    <div className="grid grid-cols-1 sm:grid-cols-2 gap-6">
+                      {/* Stats cards */}
+                      <div className="bg-white rounded-xl shadow-lg p-6 flex items-center transform transition-transform hover:-translate-y-1">
+                        <div className="bg-primary/10 p-3 rounded-lg mr-4">
+                          <Users className="h-6 w-6 text-primary" />
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold text-gray-800">250+</p>
+                          <p className="text-gray-600">Clients Served</p>
+                        </div>
+                      </div>
+                      <div className="bg-white rounded-xl shadow-lg p-6 flex items-center transform transition-transform hover:-translate-y-1">
+                        <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
+                          <Trophy className="h-6 w-6 text-blue-500" />
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold text-gray-800">98%</p>
+                          <p className="text-gray-600">Client Satisfaction</p>
+                        </div>
+                      </div>
+                      <div className="bg-white rounded-xl shadow-lg p-6 flex items-center transform transition-transform hover:-translate-y-1">
+                        <div className="bg-teal-500/10 p-3 rounded-lg mr-4">
+                          <BarChart className="h-6 w-6 text-teal-500" />
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold text-gray-800">35%</p>
+                          <p className="text-gray-600">Efficiency Gain</p>
+                        </div>
+                      </div>
+                      <div className="bg-gradient-to-br from-amber-400 to-amber-500 rounded-xl shadow-lg p-6 flex items-center transform transition-transform hover:-translate-y-1">
+                        <div className="bg-white/20 p-3 rounded-lg mr-4">
+                          <Cpu className="h-6 w-6 text-white" />
+                        </div>
+                        <div>
+                          <p className="text-2xl font-bold text-white">24/7</p>
+                          <p className="text-white/90">Technical Support</p>
+                        </div>
+                      </div>
+                    </div>
+                    <div className="absolute -bottom-3 -right-3 bg-cyan-400 text-gray-900 font-medium text-sm px-4 py-2 rounded-full shadow-lg">
+                      Trusted by Industry Leaders
+                    </div>
+                  </div>
                 </div>
               </div>
-              <div className="bg-white rounded-xl shadow-xl p-6 flex items-center">
-                <div className="bg-blue-500/10 p-3 rounded-lg mr-4">
-                  <Trophy className="h-6 w-6 text-blue-500" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-800">98%</p>
-                  <p className="text-gray-600">Client Satisfaction</p>
-                </div>
-              </div>
-              <div className="bg-white rounded-xl shadow-xl p-6 flex items-center">
-                <div className="bg-teal-500/10 p-3 rounded-lg mr-4">
-                  <BarChart className="h-6 w-6 text-teal-500" />
-                </div>
-                <div>
-                  <p className="text-2xl font-bold text-gray-800">35%</p>
-                  <p className="text-gray-600">Avg. Efficiency Gain</p>
-                </div>
-              </div>
-            </div>
-          </ScrollAnimationWrapper>
+            </ScrollAnimationWrapper>
+          </div>
         </div>
       </section>
 
