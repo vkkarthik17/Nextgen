@@ -107,7 +107,7 @@ const WhyChooseUsSection = () => {
           </p>
         </ScrollAnimationWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-6 gap-6 md:gap-8">
           <StaggeredAnimation staggerDuration={0.1}>
             {reasons.map((reason) => (
               <motion.div

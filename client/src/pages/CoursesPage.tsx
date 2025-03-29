@@ -64,7 +64,7 @@ const CoursesPage = () => {
       {/* Course Listing */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
             <StaggeredAnimation>
               {filteredCourses.length > 0 ? (
                 filteredCourses.map((course) => (
@@ -124,7 +124,7 @@ const CoursesPage = () => {
                   </motion.div>
                 ))
               ) : (
-                <div className="col-span-1 md:col-span-2 lg:col-span-3 py-12 text-center">
+                <div className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 py-12 text-center">
                   <h3 className="text-xl font-medium mb-2">No courses found</h3>
                   <p className="text-gray-500 mb-4">Try adjusting your search criteria</p>
                   <Button variant="outline" onClick={() => setQuery("")}>Reset Search</Button>
