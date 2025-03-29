@@ -299,24 +299,34 @@ const ConsultingPage = () => {
             </p>
           </ScrollAnimationWrapper>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-            <StaggeredAnimation>
-              {consultingServices.map((service) => (
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 md:gap-8">
+            {consultingServices.map((service, index) => (
+              <ScrollAnimationWrapper 
+                key={service.id} 
+                variants={fadeIn(0.2 + index * 0.05, "up")}
+                threshold={0.1}
+                className="h-full"
+              >
                 <motion.div 
-                  key={service.id}
                   whileHover={{ y: -10 }}
-                  transition={{ type: "spring", stiffness: 300 }}
+                  transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                  className="h-full"
                 >
                   <Card className="overflow-hidden h-full group shadow-md hover:shadow-xl transition-all duration-300">
                     <div className="relative h-48 overflow-hidden">
-                      <div className="absolute inset-0 bg-gradient-to-b from-transparent to-black/70 z-10"></div>
+                      <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-transparent to-black/20 z-10"></div>
                       <img 
                         src={service.image} 
                         alt={service.title} 
                         className="w-full h-full object-cover transition-transform duration-500 group-hover:scale-110"
                       />
-                      <div className={`absolute top-4 left-4 ${service.color} p-3 rounded-lg z-20`}>
+                      <div className={`absolute top-4 left-4 ${service.color} p-3 rounded-lg z-20 shadow-md`}>
                         <service.icon className={`h-6 w-6 ${service.textColor}`} />
+                      </div>
+                      <div className="absolute bottom-0 left-0 w-full p-4 z-20 transform translate-y-full group-hover:translate-y-0 transition-transform duration-300">
+                        <div className="bg-white/95 backdrop-blur-sm p-2 rounded-lg shadow-lg">
+                          <p className="text-xs text-gray-700 font-medium">Industry-approved methodology</p>
+                        </div>
                       </div>
                     </div>
                     <CardContent className="p-6 relative">
@@ -331,8 +341,8 @@ const ConsultingPage = () => {
                     </CardContent>
                   </Card>
                 </motion.div>
-              ))}
-            </StaggeredAnimation>
+              </ScrollAnimationWrapper>
+            ))}
           </div>
         </div>
       </section>

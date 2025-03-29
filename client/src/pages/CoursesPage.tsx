@@ -133,33 +133,43 @@ const CoursesPage = () => {
       {/* Course Listing */}
       <section className="py-12 md:py-16 bg-gray-50">
         <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
-            <StaggeredAnimation>
-              {filteredCourses.length > 0 ? (
-                filteredCourses.map((course) => (
+          <ScrollAnimationWrapper variants={fadeIn(0.2, "up")} className="mb-8 text-center">
+            <h2 className="text-3xl md:text-4xl font-bold mb-4">Explore Our Courses</h2>
+            <p className="text-lg text-gray-600 max-w-3xl mx-auto">
+              Browse our comprehensive range of technical and engineering courses designed to advance your career
+            </p>
+          </ScrollAnimationWrapper>
+          
+          {filteredCourses.length > 0 ? (
+            <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6 md:gap-8">
+              {filteredCourses.map((course, index) => (
+                <ScrollAnimationWrapper 
+                  key={course.id}
+                  className="h-full" 
+                  variants={fadeIn(0.2 + index * 0.05, "up")}
+                  threshold={0.1}
+                >
                   <motion.div
-                    key={course.id}
                     onMouseEnter={() => setHoveredCard(course.id)}
                     onMouseLeave={() => setHoveredCard(null)}
+                    whileHover={{ y: isMobile ? 0 : -10 }}
+                    transition={{ type: "spring", stiffness: 300, damping: 25 }}
                     className="h-full"
-                    whileHover={{
-                      y: isMobile ? 0 : -10,
-                      transition: { duration: 0.3 }
-                    }}
                   >
                     <Card className="overflow-hidden h-full transition-all duration-300 border border-gray-200/70 shadow-md hover:shadow-xl">
                       {course.image && (
-                        <div className="w-full h-48 overflow-hidden">
+                        <div className="w-full h-48 overflow-hidden relative">
                           <img 
                             src={course.image} 
                             alt={course.title} 
                             className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
                           />
+                          <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 hover:opacity-100 transition-opacity duration-300"></div>
                         </div>
                       )}
                       <CardContent className="p-6">
                         <div className="flex items-center gap-3 mb-3">
-                          <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-primary/10 text-primary`}>
+                          <div className={`w-12 h-12 rounded-lg flex items-center justify-center bg-primary/10 text-primary shadow-sm`}>
                             {course.Icon && <course.Icon className="h-6 w-6" />}
                           </div>
                           <h3 className="text-xl font-bold text-gray-800">{course.title}</h3>
@@ -191,16 +201,16 @@ const CoursesPage = () => {
                       </CardContent>
                     </Card>
                   </motion.div>
-                ))
-              ) : (
-                <div className="col-span-1 md:col-span-2 lg:col-span-3 xl:col-span-4 py-12 text-center">
-                  <h3 className="text-xl font-medium mb-2">No courses found</h3>
-                  <p className="text-gray-500 mb-4">Try adjusting your search criteria</p>
-                  <Button variant="outline" onClick={() => setQuery("")}>Reset Search</Button>
-                </div>
-              )}
-            </StaggeredAnimation>
-          </div>
+                </ScrollAnimationWrapper>
+              ))}
+            </div>
+          ) : (
+            <div className="py-12 text-center">
+              <h3 className="text-xl font-medium mb-2">No courses found</h3>
+              <p className="text-gray-500 mb-4">Try adjusting your search criteria</p>
+              <Button variant="outline" onClick={() => setQuery("")}>Reset Search</Button>
+            </div>
+          )}
         </div>
       </section>
 
