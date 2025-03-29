@@ -167,7 +167,8 @@ const HeroSection = () => {
               initial="hidden"
               animate="visible"
               variants={fadeIn(0.5)}
-              className="relative"
+              className="relative parallax-element"
+              data-speed="0.05"
             >
               {/* Glowing card effect */}
               <div className="absolute -inset-1 bg-gradient-to-r from-primary to-blue-600 rounded-3xl blur-md opacity-50"></div>

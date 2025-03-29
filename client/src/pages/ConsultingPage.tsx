@@ -27,6 +27,39 @@ const ConsultingPage = () => {
   // Scroll to top on page load
   useEffect(() => {
     window.scrollTo(0, 0);
+
+    // Parallax effect
+    const handleScroll = () => {
+      const scrollY = window.scrollY;
+      const heroSection = document.querySelector('.hero-section') as HTMLElement | null;
+      const parallaxElements = document.querySelectorAll('.parallax-element');
+      const processBg = document.querySelector('.process-bg') as HTMLElement | null;
+      
+      if (heroSection) {
+        const heroHeight = heroSection.clientHeight;
+        const translateY = Math.min(scrollY * 0.3, heroHeight / 2);
+        heroSection.style.backgroundPositionY = `-${translateY}px`;
+      }
+
+      parallaxElements.forEach((el: Element) => {
+        const element = el as HTMLElement;
+        const speed = element.dataset.speed || '0.1';
+        const translateY = scrollY * parseFloat(speed);
+        element.style.transform = `translateY(${translateY}px)`;
+      });
+      
+      if (processBg) {
+        const processBgOffset = processBg.getBoundingClientRect().top;
+        const windowHeight = window.innerHeight;
+        if (processBgOffset < windowHeight && processBgOffset > -500) {
+          const translateX = (windowHeight - processBgOffset) * 0.05;
+          processBg.style.backgroundPositionX = `${translateX}px`;
+        }
+      }
+    };
+
+    window.addEventListener('scroll', handleScroll);
+    return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
   const consultingServices = [
@@ -135,7 +168,7 @@ const ConsultingPage = () => {
   return (
     <div>
       {/* Hero Banner */}
-      <section className="relative py-20 md:py-32 bg-gradient-to-r from-gray-900 via-primary/90 to-gray-900 text-white overflow-hidden">
+      <section className="hero-section relative py-20 md:py-32 bg-gradient-to-r from-gray-900 via-primary/90 to-gray-900 text-white overflow-hidden">
         {/* Background pattern */}
         <div className="absolute inset-0 overflow-hidden">
           <div className="absolute top-0 left-0 w-full h-full bg-[url('data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMTAwJSIgaGVpZ2h0PSIxMDAlIiB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciPjxkZWZzPjxwYXR0ZXJuIGlkPSJwYXR0ZXJuIiB4PSIwIiB5PSIwIiB3aWR0aD0iNDAiIGhlaWdodD0iNDAiIHBhdHRlcm5Vbml0cz0idXNlclNwYWNlT25Vc2UiIHBhdHRlcm5UcmFuc2Zvcm09InJvdGF0ZSgxNSkiPjxyZWN0IHg9IjAiIHk9IjAiIHdpZHRoPSIyIiBoZWlnaHQ9IjIiIGZpbGw9IiNmZmZmZmYiIGZpbGwtb3BhY2l0eT0iMC4wNSIvPjwvcGF0dGVybj48L2RlZnM+PHJlY3QgeD0iMCIgeT0iMCIgd2lkdGg9IjEwMCUiIGhlaWdodD0iMTAwJSIgZmlsbD0idXJsKCNwYXR0ZXJuKSIvPjwvc3ZnPg==')] opacity-20"></div>
@@ -270,11 +303,13 @@ const ConsultingPage = () => {
                   <div className="flex flex-col md:flex-row">
                     <div className="md:w-2/5 relative overflow-hidden">
                       <div className="absolute inset-0 bg-gradient-to-r from-black/60 to-transparent z-10"></div>
-                      <img 
-                        src={study.image} 
-                        alt={study.title} 
-                        className="w-full h-full object-cover md:h-full" 
-                      />
+                      <div className="w-full h-60 md:h-full">
+                        <img 
+                          src={study.image} 
+                          alt={study.title} 
+                          className="w-full h-full object-cover" 
+                        />
+                      </div>
                       <div className="absolute top-4 left-4 bg-white/90 backdrop-blur-sm p-3 rounded-lg z-20">
                         <study.icon className="h-6 w-6 text-primary" />
                       </div>
@@ -326,7 +361,7 @@ const ConsultingPage = () => {
       </section>
 
       {/* Process Section */}
-      <section className="py-24 bg-white">
+      <section className="py-24 bg-white process-bg">
         <div className="container mx-auto px-4">
           <ScrollAnimationWrapper variants={fadeIn(0.2, "up")} className="max-w-3xl mx-auto text-center mb-16">
             <h2 className="text-3xl md:text-4xl font-bold mb-4">Our Consulting Process</h2>

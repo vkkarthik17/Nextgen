@@ -21,9 +21,9 @@ export const fadeIn = (delay = 0, direction: "up" | "down" | "left" | "right" | 
       x: 0,
       y: 0,
       transition: {
-        duration: 0.8,
+        duration: 0.6, // Reduced from 0.8 for faster animation
         ease: [0.25, 0.1, 0.25, 1],
-        delay,
+        delay: delay * 0.7, // Reduced delay for faster loading
       },
     },
   };
@@ -55,8 +55,8 @@ export const slideIn = (direction: "up" | "down" | "left" | "right", delay = 0, 
       transition: {
         type: "tween",
         ease: "easeOut",
-        duration,
-        delay,
+        duration: duration * 0.8, // Reduced duration for faster animation
+        delay: delay * 0.7, // Reduced delay for faster loading
       },
     },
   };
@@ -74,9 +74,9 @@ export const scaleIn = (delay = 0): Variants => {
       scale: 1,
       transition: {
         type: "spring",
-        stiffness: 100,
+        stiffness: 120, // Increased stiffness for faster movement
         damping: 15,
-        delay,
+        delay: delay * 0.7, // Reduced delay for faster loading
       },
     },
   };

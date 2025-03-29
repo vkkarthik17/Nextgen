@@ -20,7 +20,7 @@ const AboutSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
           <ScrollAnimationWrapper variants={fadeIn(0.2, "right")}>
-            <div className="rounded-2xl overflow-hidden shadow-xl transform">
+            <div className="rounded-2xl overflow-hidden shadow-xl transform parallax-element" data-speed="0.03">
               <div className="relative">
                 <img 
                   src="https://images.unsplash.com/photo-1581092787765-e3feb951d987?ixlib=rb-1.2.1&auto=format&fit=crop&w=1200&q=80" 
@@ -28,7 +28,7 @@ const AboutSection = () => {
                   className="w-full h-auto object-cover"
                 />
                 <div className="absolute inset-0 bg-gradient-to-t from-black/50 to-transparent"></div>
-                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-white">
+                <div className="absolute bottom-4 left-4 md:bottom-8 md:left-8 text-white parallax-element" data-speed="-0.04">
                   <span className="bg-primary text-white text-xs md:text-sm px-3 py-1 rounded-full">Established 2010</span>
                 </div>
               </div>

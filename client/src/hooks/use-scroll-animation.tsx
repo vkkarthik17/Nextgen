@@ -18,7 +18,7 @@ export const ScrollAnimationWrapper: React.FC<ScrollAnimationWrapperProps> = ({
   threshold = 0.2,
   variants,
   className = "",
-  duration = 0.5,
+  duration = 0.3,
   delay = 0
 }) => {
   const controls = useAnimation();
@@ -88,8 +88,8 @@ interface StaggeredAnimationProps {
 // A component for multi-stage staggered animations
 export const StaggeredAnimation: React.FC<StaggeredAnimationProps> = ({ 
   children, 
-  staggerDuration = 0.1, 
-  threshold = 0.2 
+  staggerDuration = 0.05, 
+  threshold = 0.1 
 }) => {
   const controls = useAnimation();
   const [ref, inView] = useInView({ threshold, triggerOnce: true });
@@ -101,7 +101,7 @@ export const StaggeredAnimation: React.FC<StaggeredAnimationProps> = ({
         y: 0,
         transition: { 
           delay: i * staggerDuration,
-          duration: 0.7,
+          duration: 0.4,
           ease: [0.25, 0.1, 0.25, 1]
         }
       }));
