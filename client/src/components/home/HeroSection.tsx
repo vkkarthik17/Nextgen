@@ -29,13 +29,17 @@ const HeroSection = () => {
   return (
     <section 
       ref={heroRef}
-      className="relative min-h-[90vh] bg-gradient-to-br from-primary to-primary/80 text-white py-16 md:py-24 overflow-hidden"
+      className="relative min-h-[90vh] bg-gradient-to-br from-[#5f3811] via-[#472a0d] to-[#2b190a] text-white py-16 md:py-24 overflow-hidden"
     >
       {/* Decorative background elements */}
-      <div className="absolute inset-0 overflow-hidden opacity-10">
-        <div className="hero-bg-element absolute top-20 left-10 w-64 h-64 rounded-full bg-white/20 blur-xl"></div>
-        <div className="hero-bg-element absolute bottom-20 right-10 w-80 h-80 rounded-full bg-white/20 blur-xl"></div>
-        <div className="hero-bg-element absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-white/20 blur-xl"></div>
+      <div className="absolute inset-0 overflow-hidden">
+        <div className="hero-bg-element absolute top-20 left-10 w-64 h-64 rounded-full bg-yellow-400/20 blur-xl"></div>
+        <div className="hero-bg-element absolute bottom-20 right-10 w-80 h-80 rounded-full bg-yellow-500/20 blur-xl"></div>
+        <div className="hero-bg-element absolute top-1/2 left-1/2 w-96 h-96 rounded-full bg-[#5f3811]/20 blur-xl"></div>
+        <div className="absolute inset-0 opacity-10" style={{ 
+          backgroundImage: 'url("data:image/svg+xml,%3Csvg width=\'60\' height=\'60\' viewBox=\'0 0 60 60\' xmlns=\'http://www.w3.org/2000/svg\'%3E%3Cg fill=\'white\' fill-opacity=\'0.15\' fill-rule=\'evenodd\'%3E%3Cpath d=\'M36 34v-4h-2v4h-4v2h4v4h2v-4h4v-2h-4zm0-30V0h-2v4h-4v2h4v4h2V6h4V4h-4zM6 34v-4H4v4H0v2h4v4h2v-4h4v-2H6zM6 4V0H4v4H0v2h4v4h2V6h4V4H6z\'/%3E%3C/g%3E%3C/svg%3E")',
+          backgroundPosition: 'center'
+        }}></div>
       </div>
       
       <div className="container relative mx-auto px-4 sm:px-6 lg:px-8 flex items-center min-h-[calc(90vh-6rem)]">
@@ -48,7 +52,7 @@ const HeroSection = () => {
             >
               <h1 className="text-5xl md:text-6xl lg:text-7xl font-bold leading-tight mb-6 bg-clip-text">
                 <span className="inline-block pb-2">Transform Your</span><br />
-                <span className="bg-gradient-to-r from-amber-300 to-amber-500 text-transparent bg-clip-text">Career</span> with Nextgen
+                <span className="bg-gradient-to-r from-yellow-400 to-yellow-500 text-transparent bg-clip-text">Career</span> with <span className="text-[#5f3811]">Nextgen</span>
               </h1>
             </motion.div>
             
@@ -69,7 +73,7 @@ const HeroSection = () => {
             >
               <Button 
                 size="lg" 
-                className="bg-amber-500 hover:bg-amber-600 text-white font-medium py-4 px-8 rounded-xl"
+                className="bg-yellow-500 hover:bg-yellow-600 text-[#5f3811] font-medium py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-yellow-500/30"
                 asChild
               >
                 <Link href="#courses">View Courses</Link>
@@ -77,7 +81,7 @@ const HeroSection = () => {
               <Button 
                 size="lg" 
                 variant="outline" 
-                className="bg-white hover:bg-neutral-100 text-primary border-0 font-medium py-4 px-8 rounded-xl"
+                className="bg-white hover:bg-yellow-50 text-[#5f3811] border-2 border-[#5f3811] font-medium py-4 px-8 rounded-xl shadow-lg transition-all duration-300"
                 asChild
               >
                 <Link href="/contact">Request Consultation</Link>
@@ -114,7 +118,7 @@ const HeroSection = () => {
               variants={fadeIn(0.5)}
               className="relative"
             >
-              <div className="absolute -inset-0.5 bg-gradient-to-r from-amber-500 to-amber-300 rounded-2xl blur-md opacity-70"></div>
+              <div className="absolute -inset-0.5 bg-gradient-to-r from-yellow-500 to-[#5f3811] rounded-2xl blur-md opacity-70"></div>
               <div className="rounded-2xl shadow-2xl w-full h-auto overflow-hidden bg-gray-300 aspect-video relative">
                 <img 
                   src="https://images.unsplash.com/photo-1581092921461-eab62e97a780?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80" 

@@ -2,6 +2,7 @@ import { useState } from "react";
 import { Link, useLocation } from "wouter";
 import { Menu, X } from "lucide-react";
 import { Button } from "@/components/ui/button";
+import nextgenLogo from "@/assets/nextgen-logo.png";
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
@@ -36,7 +37,7 @@ const Header = () => {
           <div className="flex items-center">
             <Link href="/">
               <div className="flex items-center cursor-pointer">
-                <span className="text-primary font-bold text-2xl">NEXTGEN</span>
+                <img src={nextgenLogo} alt="Nextgen Logo" className="h-12" />
               </div>
             </Link>
           </div>
@@ -46,8 +47,8 @@ const Header = () => {
             {navLinks.map((link) => (
               <Link key={link.path} href={link.path}>
                 <div
-                  className={`font-medium hover:text-primary transition-colors cursor-pointer ${
-                    isActive(link.path) ? "text-primary" : "text-neutral-700"
+                  className={`font-medium hover:text-[#f59e0b] transition-colors cursor-pointer ${
+                    isActive(link.path) ? "text-[#f59e0b]" : "text-[#5f3811]"
                   }`}
                   onClick={closeMenu}
                 >
@@ -66,9 +67,9 @@ const Header = () => {
               aria-label="Toggle menu"
             >
               {isMenuOpen ? (
-                <X className="h-6 w-6" />
+                <X className="h-6 w-6 text-[#5f3811]" />
               ) : (
-                <Menu className="h-6 w-6" />
+                <Menu className="h-6 w-6 text-[#5f3811]" />
               )}
             </Button>
           </div>
@@ -80,8 +81,8 @@ const Header = () => {
             {navLinks.map((link) => (
               <Link key={link.path} href={link.path}>
                 <div
-                  className={`font-medium py-2 px-2 hover:text-primary transition-colors cursor-pointer ${
-                    isActive(link.path) ? "text-primary" : "text-neutral-700"
+                  className={`font-medium py-2 px-2 hover:text-[#f59e0b] transition-colors cursor-pointer ${
+                    isActive(link.path) ? "text-[#f59e0b]" : "text-[#5f3811]"
                   }`}
                   onClick={closeMenu}
                 >

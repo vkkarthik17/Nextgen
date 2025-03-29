@@ -18,11 +18,11 @@ const IndustriesSection = () => {
   };
   
   return (
-    <section className="py-24 bg-gradient-to-b from-white to-neutral-50 relative overflow-hidden">
+    <section className="py-24 bg-gradient-to-b from-white to-blue-50 relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
-        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-neutral-100 to-transparent"></div>
-        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-neutral-100/50 to-transparent"></div>
+        <div className="absolute top-0 left-0 w-full h-24 bg-gradient-to-b from-blue-50/50 to-transparent"></div>
+        <div className="absolute bottom-0 left-0 w-full h-64 bg-gradient-to-t from-blue-100/30 to-transparent"></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">

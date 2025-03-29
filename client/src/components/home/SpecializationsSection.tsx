@@ -11,11 +11,11 @@ const SpecializationsSection = () => {
   const [hoveredCard, setHoveredCard] = useState<string | null>(null);
   
   return (
-    <section id="courses" className="py-24 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
+    <section id="courses" className="py-24 bg-gradient-to-b from-blue-50 to-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 overflow-hidden opacity-5 pointer-events-none">
         <div className="absolute -top-20 -right-20 w-96 h-96 rounded-full bg-primary/20 blur-3xl"></div>
-        <div className="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-amber-400/20 blur-3xl"></div>
+        <div className="absolute top-1/2 -left-20 w-80 h-80 rounded-full bg-cyan-400/20 blur-3xl"></div>
       </div>
       
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
@@ -23,7 +23,7 @@ const SpecializationsSection = () => {
           variants={fadeIn(0.2, "up")}
           className="text-center mb-20"
         >
-          <span className="text-sm font-semibold tracking-wider text-amber-500 uppercase mb-2 inline-block">Expertise & Training</span>
+          <span className="text-sm font-semibold tracking-wider text-cyan-600 uppercase mb-2 inline-block">Expertise & Training</span>
           <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800 leading-tight">
             Our <span className="text-primary">Specializations</span>
           </h2>
@@ -82,7 +82,7 @@ const SpecializationsSection = () => {
                         href={`/courses/${specialization.id}`} 
                         className={`group inline-flex items-center font-medium transition-colors ${
                           hoveredCard === specialization.id 
-                            ? 'text-amber-500' 
+                            ? 'text-cyan-600' 
                             : 'text-primary'
                         }`}
                       >
