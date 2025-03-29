@@ -76,7 +76,7 @@ const HeroSection = () => {
                 className="bg-yellow-500 hover:bg-yellow-600 text-[#5f3811] font-medium py-4 px-8 rounded-xl transition-all duration-300 shadow-lg hover:shadow-yellow-500/30"
                 asChild
               >
-                <Link href="#courses">View Courses</Link>
+                <Link href="/courses">View Courses</Link>
               </Button>
               <Button 
                 size="lg" 

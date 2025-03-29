@@ -11,6 +11,7 @@ import { motion } from "framer-motion";
 import { ScrollAnimationWrapper, StaggeredAnimation } from "@/hooks/use-scroll-animation";
 import { fadeIn, scaleIn } from "@/lib/animation";
 import { useState } from "react";
+import { useIsMobile } from "@/hooks/use-mobile";
 
 const reasons = [
   {
@@ -19,7 +20,8 @@ const reasons = [
     description: "We ensure career opportunities through our extensive industry network and placement support.",
     Icon: PlacementIcon,
     bgColor: "bg-blue-500/10",
-    iconColor: "text-blue-600"
+    iconColor: "text-blue-600",
+    image: "https://images.unsplash.com/photo-1573497161079-f3fd25cc6b90?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "instructors",
@@ -27,7 +29,8 @@ const reasons = [
     description: "Learn from professionals with years of hands-on experience in their respective fields.",
     Icon: InstructorsIcon,
     bgColor: "bg-amber-500/10",
-    iconColor: "text-amber-600"
+    iconColor: "text-amber-600",
+    image: "https://images.unsplash.com/photo-1571260899304-425eee4c7efc?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "hands-on",
@@ -35,7 +38,8 @@ const reasons = [
     description: "Practical, project-based learning that prepares you for real-world challenges and applications.",
     Icon: HandsOnIcon,
     bgColor: "bg-green-500/10",
-    iconColor: "text-green-600"
+    iconColor: "text-green-600",
+    image: "https://images.unsplash.com/photo-1581092335878-2d9ff86ca2bf?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "curriculum",
@@ -43,7 +47,8 @@ const reasons = [
     description: "Thoughtfully designed coursework that covers both fundamentals and advanced topics.",
     Icon: CurriculumIcon,
     bgColor: "bg-purple-500/10",
-    iconColor: "text-purple-600"
+    iconColor: "text-purple-600",
+    image: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "support",
@@ -51,7 +56,8 @@ const reasons = [
     description: "Continuous guidance during and after training to ensure your professional success.",
     Icon: SupportIcon,
     bgColor: "bg-rose-500/10",
-    iconColor: "text-rose-600"
+    iconColor: "text-rose-600",
+    image: "https://images.unsplash.com/photo-1522202176988-66273c2fd55f?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
   {
     id: "certification",
@@ -59,24 +65,26 @@ const reasons = [
     description: "Receive certifications that enhance your resume and validate your expertise.",
     Icon: CertificationIcon,
     bgColor: "bg-teal-500/10",
-    iconColor: "text-teal-600"
+    iconColor: "text-teal-600",
+    image: "https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?ixlib=rb-1.2.1&auto=format&fit=crop&w=800&q=80"
   },
 ];
 
 const WhyChooseUsSection = () => {
   const [hoveredReason, setHoveredReason] = useState<string | null>(null);
+  const isMobile = useIsMobile();
   
   return (
-    <section className="py-24 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
+    <section className="py-16 md:py-24 bg-gradient-to-b from-neutral-50 to-white relative overflow-hidden">
       {/* Background decorative elements */}
       <div className="absolute inset-0 pointer-events-none">
         <div className="absolute right-0 top-20 opacity-10">
-          <svg width="400" height="400" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="250" height="250" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:w-[400px] md:h-[400px]">
             <path d="M50 0L93.3013 25V75L50 100L6.69873 75V25L50 0Z" fill="currentColor" className="text-primary" />
           </svg>
         </div>
         <div className="absolute left-0 bottom-20 opacity-10">
-          <svg width="300" height="300" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg">
+          <svg width="200" height="200" viewBox="0 0 100 100" fill="none" xmlns="http://www.w3.org/2000/svg" className="md:w-[300px] md:h-[300px]">
             <circle cx="50" cy="50" r="50" fill="currentColor" className="text-amber-500" />
           </svg>
         </div>
@@ -85,50 +93,59 @@ const WhyChooseUsSection = () => {
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <ScrollAnimationWrapper
           variants={fadeIn(0.2, "up")}
-          className="text-center mb-20"
+          className="text-center mb-12 md:mb-20"
         >
           <div className="inline-block bg-primary/10 px-4 py-1.5 rounded-full text-primary font-medium text-sm mb-4">
             Our Commitment to Excellence
           </div>
-          <h2 className="text-4xl md:text-5xl font-bold mb-6 text-neutral-800">
+          <h2 className="text-3xl md:text-4xl lg:text-5xl font-bold mb-4 md:mb-6 text-neutral-800">
             Why Choose <span className="text-primary">Nextgen</span>?
           </h2>
-          <p className="text-lg text-neutral-600 max-w-2xl mx-auto">
+          <p className="text-base md:text-lg text-neutral-600 max-w-2xl mx-auto">
             We're committed to your success with a comprehensive approach to technical education
             that ensures your career advancement.
           </p>
         </ScrollAnimationWrapper>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           <StaggeredAnimation staggerDuration={0.1}>
             {reasons.map((reason) => (
               <motion.div
                 key={reason.id}
                 onMouseEnter={() => setHoveredReason(reason.id)}
                 onMouseLeave={() => setHoveredReason(null)}
-                whileHover={{ y: -10 }}
+                whileHover={{ y: isMobile ? 0 : -10 }}
                 transition={{ type: "spring", stiffness: 300, damping: 20 }}
               >
                 <Card className="bg-white border border-neutral-200/50 shadow-lg overflow-hidden h-full">
-                  <CardContent className="p-8">
-                    <div className="flex items-start">
+                  {reason.image && (
+                    <div className="w-full h-36 md:h-40 overflow-hidden">
+                      <img 
+                        src={reason.image} 
+                        alt={reason.title}
+                        className="w-full h-full object-cover transition-all duration-500 hover:scale-110"
+                      />
+                    </div>
+                  )}
+                  <CardContent className="p-5 md:p-6">
+                    <div className="flex flex-row items-start gap-4">
                       <motion.div 
-                        className={`w-16 h-16 ${reason.bgColor} rounded-2xl flex items-center justify-center mr-5`}
+                        className={`w-12 h-12 md:w-14 md:h-14 ${reason.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0`}
                         animate={hoveredReason === reason.id ? { rotate: [0, 10, -10, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
                         transition={{ duration: 0.5 }}
                       >
-                        <reason.Icon className={`h-8 w-8 ${reason.iconColor}`} />
+                        <reason.Icon className={`h-6 w-6 md:h-7 md:w-7 ${reason.iconColor}`} />
                       </motion.div>
                       
                       <div>
-                        <h3 className="text-xl font-bold mb-3 text-neutral-800">{reason.title}</h3>
-                        <p className="text-neutral-600">{reason.description}</p>
+                        <h3 className="text-lg md:text-xl font-bold mb-2 text-neutral-800">{reason.title}</h3>
+                        <p className="text-sm md:text-base text-neutral-600">{reason.description}</p>
                       </div>
                     </div>
                     
                     {/* Animated underline on hover */}
                     <motion.div 
-                      className="h-0.5 bg-gradient-to-r from-primary to-primary/40 mt-6"
+                      className="h-0.5 bg-gradient-to-r from-primary to-primary/40 mt-4 md:mt-6"
                       initial={{ width: 0 }}
                       animate={{ width: hoveredReason === reason.id ? "100%" : "30%" }}
                       transition={{ duration: 0.3 }}
@@ -142,23 +159,23 @@ const WhyChooseUsSection = () => {
         
         <ScrollAnimationWrapper
           variants={scaleIn(0.6)}
-          className="mt-20 text-center"
+          className="mt-12 md:mt-20 text-center"
         >
-          <div className="bg-primary/5 rounded-2xl p-8 border border-primary/10 max-w-3xl mx-auto">
-            <h3 className="text-2xl font-bold mb-4 text-primary">Join Thousands of Successful Professionals</h3>
-            <p className="text-neutral-700">
+          <div className="bg-primary/5 rounded-lg md:rounded-2xl p-6 md:p-8 border border-primary/10 max-w-3xl mx-auto">
+            <h3 className="text-xl md:text-2xl font-bold mb-3 md:mb-4 text-primary">Join Thousands of Successful Professionals</h3>
+            <p className="text-sm md:text-base text-neutral-700">
               Our proven track record of placing students in top companies speaks for itself. 
               With Nextgen, you're not just getting education - you're investing in your future.
             </p>
             
-            <div className="mt-6 flex flex-wrap justify-center gap-4">
-              <div className="bg-white py-2 px-4 rounded-full shadow-sm text-sm font-medium text-neutral-700">
+            <div className="mt-4 md:mt-6 flex flex-wrap justify-center gap-3 md:gap-4">
+              <div className="bg-white py-1.5 md:py-2 px-3 md:px-4 rounded-full shadow-sm text-xs md:text-sm font-medium text-neutral-700">
                 98% Placement Rate
               </div>
-              <div className="bg-white py-2 px-4 rounded-full shadow-sm text-sm font-medium text-neutral-700">
+              <div className="bg-white py-1.5 md:py-2 px-3 md:px-4 rounded-full shadow-sm text-xs md:text-sm font-medium text-neutral-700">
                 5000+ Trained Professionals
               </div>
-              <div className="bg-white py-2 px-4 rounded-full shadow-sm text-sm font-medium text-neutral-700">
+              <div className="bg-white py-1.5 md:py-2 px-3 md:px-4 rounded-full shadow-sm text-xs md:text-sm font-medium text-neutral-700">
                 150+ Industry Partners
               </div>
             </div>
