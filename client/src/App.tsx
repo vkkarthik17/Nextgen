@@ -2,6 +2,7 @@ import { Route, Router, Switch } from "wouter";
 import Home from "@/pages/Home";
 import NotFound from "@/pages/not-found";
 import CoursePage from "@/pages/CoursePage";
+import CoursesPage from "@/pages/CoursesPage"; // Added the new courses page
 import ContactPage from "@/pages/ContactPage";
 import Header from "@/components/layout/Header";
 import Footer from "@/components/layout/Footer";
@@ -17,6 +18,7 @@ function App() {
         <main className="flex-grow">
           <Switch>
             <Route path="/" component={Home} />
+            <Route path="/courses" component={CoursesPage} /> {/* Added route for the courses listing page */}
             <Route path="/courses/:id" component={CoursePage} />
             <Route path="/consulting" component={ConsultingPage} />
             <Route path="/placements" component={PlacementsPage} />

@@ -128,17 +128,17 @@ const WhyChooseUsSection = () => {
                     </div>
                   )}
                   <CardContent className="p-5 md:p-6">
-                    <div className="flex flex-row items-start gap-4">
+                    <div className="flex flex-col items-center text-center mb-4">
                       <motion.div 
-                        className={`w-12 h-12 md:w-14 md:h-14 ${reason.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0`}
+                        className={`w-16 h-16 md:w-20 md:h-20 ${reason.bgColor} rounded-xl md:rounded-2xl flex items-center justify-center flex-shrink-0 mb-4`}
                         animate={hoveredReason === reason.id ? { rotate: [0, 10, -10, 0], scale: 1.1 } : { rotate: 0, scale: 1 }}
                         transition={{ duration: 0.5 }}
                       >
-                        <reason.Icon className={`h-6 w-6 md:h-7 md:w-7 ${reason.iconColor}`} />
+                        <reason.Icon className={`h-8 w-8 md:h-10 md:w-10 ${reason.iconColor}`} />
                       </motion.div>
                       
                       <div>
-                        <h3 className="text-lg md:text-xl font-bold mb-2 text-neutral-800">{reason.title}</h3>
+                        <h3 className="text-lg md:text-xl font-bold mb-3 text-neutral-800">{reason.title}</h3>
                         <p className="text-sm md:text-base text-neutral-600">{reason.description}</p>
                       </div>
                     </div>
