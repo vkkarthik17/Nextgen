@@ -227,14 +227,19 @@ const BlogPage = () => {
               </ScrollAnimationWrapper>
 
               <div className="grid grid-cols-1 md:grid-cols-2 gap-8">
-                <StaggeredAnimation staggerDuration={0.1}>
-                  {blogPosts.map((post) => (
+                {blogPosts.map((post, index) => (
+                  <ScrollAnimationWrapper 
+                    key={post.id}
+                    variants={fadeIn(0.2 + (index * 0.05), "up")}
+                    threshold={0.1}
+                    className="h-full"
+                  >
                     <motion.div 
-                      key={post.id}
                       whileHover={{ y: -8, boxShadow: "0 15px 30px -10px rgba(0, 0, 0, 0.1)" }}
                       transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                      className="h-full"
                     >
-                      <Card className="overflow-hidden h-full border-0 shadow-lg">
+                      <Card className="overflow-hidden h-full border-0 shadow-lg flex flex-col">
                         <div className="h-52 bg-neutral-100 overflow-hidden relative">
                           <img 
                             src={post.image} 
@@ -247,7 +252,7 @@ const BlogPage = () => {
                             </span>
                           </div>
                         </div>
-                        <CardContent className="p-6">
+                        <CardContent className="p-6 flex flex-col flex-grow">
                           <h3 className="text-xl font-bold mb-3 text-neutral-800 line-clamp-2 hover:text-primary transition-colors leading-tight">
                             <Link href={`/blog/${post.id}`}>{post.title}</Link>
                           </h3>
@@ -272,8 +277,8 @@ const BlogPage = () => {
                         </CardContent>
                       </Card>
                     </motion.div>
-                  ))}
-                </StaggeredAnimation>
+                  </ScrollAnimationWrapper>
+                ))}
               </div>
               
               <ScrollAnimationWrapper variants={fadeIn(0.4, "up")} className="mt-12 flex justify-center">
